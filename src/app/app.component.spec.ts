@@ -10,22 +10,37 @@ describe('AppComponent', () => {
     }).compileComponents();
   });
 
+
   it('should create the app', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'ericsson'`, () => {
+  it(`click of parent node, should display child nodes(For country)`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('ericsson');
+    const param= app.countries[0].values[0].values[0];
+    app.clickOnCountry([param])
+    expect(app.zoneList.length).toEqual(2);
   });
 
-  it('should render title', () => {
+
+
+  it(`Default state is all are collapsed`, () => {
     const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('ericsson app is running!');
+    const app = fixture.componentInstance;
+    expect(app.upOrDown).toEqual(false);
   });
+
+
+  it(`details panel should contain population in human readable format (crores", "lakhs" etc.)`, () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.componentInstance;
+    const param= app.countries[0].values[0].values[0];
+    app.numDifferentiation("1000000")
+    expect(app.population).toEqual("10.00 Lac");
+  });
+
+  
 });
