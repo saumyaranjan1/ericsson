@@ -1,7 +1,6 @@
 <div class="container">
 	<div>
 		<ng-template #recursiveListTmpl let-list="list">
-
 			<div *ngFor="let childList of list.values" (click)="clickOnCountry(childList.values)">
 				<div class="contryName" id="contryName">
 					<bi name="chevron-compact-down" *ngIf="upOrDown"  class="svc-color"></bi>

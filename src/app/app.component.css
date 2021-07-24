@@ -3,6 +3,9 @@
     font-family: monospace;
     font-size: 15px;
     font-weight: 500;
+    margin: auto;
+    width: 90%;
+    margin-top: 5%;
 }
 
 .state-class{

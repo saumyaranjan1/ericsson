@@ -7,7 +7,6 @@ import { AppService } from './app.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-
   public list: NavigationModel[]
   countries = []
   zoneList = [];
@@ -27,11 +26,7 @@ export class AppComponent implements OnInit {
 
   clickOnCountry(list) {
     this.upOrDown = !this.upOrDown;
-    if (this.upOrDown) {
-      this.zoneList = list[0].values;
-    } else {
-      this.zoneList = [];
-    }
+    this.upOrDown ? this.zoneList = list[0].values :  this.zoneList = []
   }
 
   numDifferentiation(value) {
